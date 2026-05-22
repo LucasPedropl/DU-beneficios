@@ -1,0 +1,6 @@
+{
+  "name": "Du Benefícios & Sempre Assistência",
+  "description": "Landing page premium para a parceria Du Benefícios e Sempre Assistência Automotiva, incluindo simulador interativo de economia, rede credenciada e planos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
