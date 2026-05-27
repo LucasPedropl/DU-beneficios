@@ -13,6 +13,7 @@ import Header from './features/landing/components/Header';
 import Hero from './features/landing/components/Hero';
 import BenefitsCatalog from './features/landing/components/BenefitsCatalog';
 import SavingsSimulator from './features/landing/components/SavingsSimulator';
+import CustomerStories from './features/landing/components/CustomerStories';
 import NetworkStats from './features/landing/components/NetworkStats';
 import HealthJourney from './features/landing/components/HealthJourney';
 import TimelineHistory from './features/landing/components/TimelineHistory';
@@ -35,6 +36,9 @@ export default function App() {
         
         {/* Interactive Value Simulator */}
         <SavingsSimulator />
+
+        {/* Customer Success Stories & Personas */}
+        <CustomerStories />
         
         {/* Statistics Dashboard and Telemedicine TopMed Info */}
         <NetworkStats />

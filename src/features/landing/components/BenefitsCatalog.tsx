@@ -4,8 +4,14 @@
  */
 
 import React, { useState, useMemo } from 'react';
-import { Search, Percent, Activity, ShieldCheck, ShoppingBag, Pill, Compass, HeartPulse } from 'lucide-react';
-import { PharmacyDiscount } from '../../../types/landing';
+import { Search, Compass, HeartPulse, Pill, ShoppingBag, ShieldCheck, Sparkles } from 'lucide-react';
+
+interface PharmacyDiscount {
+  name: string;
+  genericDiscount: string;
+  brandedDiscount: string;
+  extraInfo: string;
+}
 
 const CATEGORIES = [
   { id: 'all', label: 'Todos', icon: Compass },
@@ -56,47 +62,49 @@ export default function BenefitsCatalog() {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <section id="descontos" className="py-20 bg-stone-50 border-t border-stone-200">
+    <section id="beneficios" className="py-24 bg-slate-50 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header section with slide info */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-          <div className="max-w-xl text-left">
-            <span className="text-xs uppercase font-mono tracking-widest text-[#2563eb] font-bold block mb-2">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+          <div className="max-w-2xl text-left">
+            <span className="text-xs uppercase font-mono tracking-widest text-brand-blue-deep font-black bg-brand-blue-deep/5 px-3 py-1.5 rounded-full block w-fit mb-3">
               Clube de Vantagens
             </span>
-            <h2 className="font-display text-4xl font-extrabold text-stone-900 tracking-tight">
+            <h2 className="font-display text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Medicamentos e Compras com Desconto de Verdade
             </h2>
-            <p className="mt-3 text-stone-500 text-sm leading-relaxed">
-              Tenha acesso a mais de 290 conveniadas e 24 mil lojas cadastradas para economizar na hora de renovar sua receita ou fazer compras online e físicas.
+            <p className="mt-4 text-slate-550 text-sm leading-relaxed">
+              Tenha acesso a mais de 290 farmácias conveniadas e 24 mil lojas físicas e virtuais credenciadas em todo o país. Economia real para as necessidades diárias de sua família.
             </p>
           </div>
 
           {/* Highlight pill R$35 Millions saving */}
-          <div className="bg-white border border-stone-200 text-stone-900 rounded-3xl p-5 md:max-w-xs text-left shadow-sm">
-            <p className="text-[10px] uppercase font-mono text-stone-400 font-bold">Histórico Comprovado</p>
-            <p className="font-display text-2xl font-extrabold mt-1 text-[#2563eb]">R$ 35 Milhões</p>
-            <p className="text-xs text-stone-500 mt-0.5">Em economia de verdade gerada para nossos parceiros e clientes em todo o Brasil.</p>
+          <div className="bg-white border border-slate-200 rounded-[2rem] p-6 md:max-w-xs text-left shadow-lg shadow-slate-100/50 relative overflow-hidden shrink-0">
+            <div className="absolute right-[-10%] top-[-10%] w-16 h-16 bg-blue-50 rounded-full blur-xl"></div>
+            <p className="text-[9px] uppercase font-bold font-mono text-slate-400">Histórico de Cuidado</p>
+            <p className="font-display text-2.5xl font-black mt-1.5 text-brand-blue-deep">+ R$ 35 Milhões</p>
+            <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">Em economia líquida gerada para nossos 4 milhões de clientes no Brasil.</p>
           </div>
         </div>
 
         {/* Dynamic Filters & Search Input */}
-        <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center gap-4 mb-8 bg-white p-3 rounded-2xl border border-stone-200 shadow-sm">
+        <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center gap-4 mb-10 bg-white/70 backdrop-blur-md p-4 rounded-3xl border border-slate-200/60 shadow-md shadow-slate-100/30">
           <div className="flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
               const Icon = cat.icon;
+              const isActive = selectedCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
-                    selectedCategory === cat.id
-                      ? 'bg-brand-blue-deep text-white shadow-sm'
-                      : 'hover:bg-stone-100 text-stone-600 bg-stone-50/50'
+                  className={`flex items-center space-x-2 px-4.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 active:scale-95 cursor-pointer ${
+                    isActive
+                      ? 'bg-brand-blue-deep text-white shadow-lg shadow-brand-blue-deep/20'
+                      : 'hover:bg-slate-100 text-slate-600 bg-slate-50/50'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-4 h-4" />
                   <span>{cat.label}</span>
                 </button>
               );
@@ -104,13 +112,13 @@ export default function BenefitsCatalog() {
           </div>
 
           <div className="relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
-              placeholder="Pesquisar drogaria, loja ou parceiro..."
+              placeholder="Pesquisar parceiro ou drogaria..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full lg:w-72 pl-10 pr-4 py-2 bg-stone-50 text-xs font-medium border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue-deep focus:border-transparent transition-all shadow-sm text-stone-900"
+              className="w-full lg:w-80 pl-10 pr-4 py-2.5 bg-slate-50 text-xs border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-blue-deep focus:border-transparent transition-all shadow-inner text-slate-900"
             />
           </div>
         </div>
@@ -120,23 +128,23 @@ export default function BenefitsCatalog() {
           
           {/* Render Pharmacy items */}
           {filteredPharmacies.map((item, index) => (
-            <div key={`pharmacy-${index}`} className="bg-white hover:bg-stone-50/50 rounded-3xl p-5 border border-stone-200 flex flex-col justify-between transition-all duration-200 text-left group shadow-sm hover:shadow-md">
+            <div key={`pharmacy-${index}`} className="bg-white hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-250/30 rounded-[2rem] p-6 border border-slate-200/60 flex flex-col justify-between transition-all duration-300 text-left group shadow-md shadow-slate-100/40">
               <div>
-                <p className="text-[10px] uppercase font-semibold font-mono text-stone-400">Medicamentos</p>
-                <h4 className="font-display font-bold text-lg text-stone-900 group-hover:text-brand-blue-deep transition-colors mt-1">
+                <span className="text-[9px] uppercase font-bold font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded">Medicamentos</span>
+                <h4 className="font-display font-black text-lg text-slate-900 group-hover:text-brand-blue-deep transition-colors mt-2.5">
                   {item.name}
                 </h4>
-                <p className="text-xs text-stone-500 mt-0.5">{item.extraInfo}</p>
+                <p className="text-xs text-slate-500 mt-1">{item.extraInfo}</p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-stone-100 flex justify-between items-center bg-stone-50/60 p-3 rounded-xl">
+              <div className="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center bg-slate-50/60 p-3.5 rounded-2xl border border-slate-150">
                 <div>
-                  <p className="text-[8px] uppercase tracking-wider font-semibold text-stone-400">Genérico</p>
-                  <p className="text-base font-extrabold text-[#2563eb] font-display">{item.genericDiscount}</p>
+                  <p className="text-[8px] uppercase tracking-widest font-bold text-slate-400">Genérico</p>
+                  <p className="text-base font-extrabold text-brand-blue-deep font-display mt-0.5">{item.genericDiscount}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-[8px] uppercase tracking-wider font-semibold text-stone-400">Marca</p>
-                  <p className="text-sm font-bold text-brand-blue-light font-display">{item.brandedDiscount}</p>
+                  <p className="text-[8px] uppercase tracking-widest font-bold text-slate-400">De Marca</p>
+                  <p className="text-sm font-bold text-slate-700 font-display mt-0.5">{item.brandedDiscount}</p>
                 </div>
               </div>
             </div>
@@ -144,43 +152,46 @@ export default function BenefitsCatalog() {
 
           {/* Render Retail items */}
           {filteredRetail.map((item, index) => (
-            <div key={`retail-${index}`} className="bg-white hover:bg-stone-50/50 rounded-3xl p-5 border border-stone-200 flex flex-col justify-between transition-all duration-200 text-left group shadow-sm hover:shadow-md">
+            <div key={`retail-${index}`} className="bg-white hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-250/30 rounded-[2rem] p-6 border border-slate-200/60 flex flex-col justify-between transition-all duration-300 text-left group shadow-md shadow-slate-100/40">
               <div>
-                <p className="text-[10px] uppercase font-semibold font-mono text-stone-400">Varejo e Lazer</p>
-                <h4 className="font-display font-bold text-lg text-stone-900 group-hover:text-[#2563eb] transition-colors mt-1">
+                <span className="text-[9px] uppercase font-bold font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded">Varejo e Lazer</span>
+                <h4 className="font-display font-black text-lg text-slate-900 group-hover:text-brand-blue-deep transition-colors mt-2.5">
                   {item.name}
                 </h4>
-                <p className="text-xs text-stone-500 mt-1">{item.info}</p>
+                <p className="text-xs text-slate-500 mt-1">{item.info}</p>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-stone-100 flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-1 bg-green-500/10 text-green-700 rounded-md">
+              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 bg-emerald-50 border border-emerald-100 text-emerald-600 rounded-lg">
                   {item.discount}
                 </span>
-                <span className="text-[10px] text-stone-400 font-medium font-mono">Clube Du</span>
+                <span className="text-[9px] text-slate-400 font-mono">Convênio DU</span>
               </div>
             </div>
           ))}
 
-          {/* Show full Automotivo benefit indicators if needed */}
+          {/* Show Sempre Automotivo special card if category allows */}
           {(selectedCategory === 'all' || selectedCategory === 'auto') && searchQuery === '' && (
-            <div className="bg-stone-900 text-white rounded-[2rem] p-6 lg:col-span-2 text-left shadow-lg flex flex-col justify-between border border-stone-800 relative overflow-hidden group">
-              <div className="absolute right-[-10%] top-[-20%] w-32 h-32 bg-brand-blue-deep/10 rounded-full blur-2xl"></div>
+            <div className="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-[2rem] p-6.5 lg:col-span-2 text-left shadow-xl shadow-slate-950/20 flex flex-col justify-between border border-slate-800 relative overflow-hidden group hover:border-slate-700 transition-all duration-300">
+              <div className="absolute right-[-10%] top-[-20%] w-36 h-36 bg-brand-blue-deep/20 rounded-full blur-3xl"></div>
               <div>
-                <span className="text-[10px] uppercase font-mono tracking-widest text-brand-blue-light font-bold">Assistência Automotiva</span>
-                <h4 className="font-display font-extrabold text-2xl text-white mt-1.5 leading-snug">SEMPRE Assistência 24h</h4>
-                <p className="text-xs text-stone-350 mt-2 leading-relaxed">
-                  Tranquilidade nas ruas com guincho 24 horas, chaveiro, reboque por sinistro, socorro elétrico na bateria e auxílio mecânico emergencial para o veículo cadastrado.
+                <span className="text-[9px] uppercase font-mono tracking-widest text-brand-blue-light font-bold">Assistência Automotiva</span>
+                <h4 className="font-display font-extrabold text-2.5xl text-white mt-2 leading-snug">SEMPRE Assistência 24h</h4>
+                <p className="text-xs text-slate-300 mt-3 leading-relaxed">
+                  Assistência completa nas ruas e estradas com guincho 24 horas, reboque por sinistro, carga na bateria, chaveiro e socorro mecânico no local. Cobertura completa e rápida.
                 </p>
               </div>
-              <div className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-4 text-xs">
+              <div className="mt-8 grid grid-cols-2 gap-4 border-t border-white/5 pt-4.5 text-xs">
                 <div>
-                  <p className="text-[9px] uppercase font-mono text-stone-400">Tipo de Atendimento</p>
-                  <p className="font-bold font-display text-brand-yellow">Presencial no Local</p>
+                  <p className="text-[9px] uppercase font-mono text-slate-400">Atendimento</p>
+                  <p className="font-bold font-display text-brand-yellow mt-0.5">Presencial 24 Horas</p>
                 </div>
                 <div>
-                  <p className="text-[9px] uppercase font-mono text-stone-400">Abrangência Nacional</p>
-                  <p className="font-bold font-display text-brand-yellow font-bold text-emerald-400">27 Estados Protegidos</p>
+                  <p className="text-[9px] uppercase font-mono text-slate-400">Abrangência</p>
+                  <div className="flex items-center space-x-1.5 mt-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <p className="font-bold font-display text-emerald-400">Nacional (27 Estados)</p>
+                  </div>
                 </div>
               </div>
             </div>
