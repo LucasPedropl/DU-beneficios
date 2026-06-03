@@ -16,10 +16,19 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[95vh] flex items-center bg-slate-50 text-slate-950 pt-28 pb-16 overflow-hidden">
-      {/* Glow Orbs background */}
-      <div className="absolute inset-0 opacity-15 pointer-events-none">
-        <div className="absolute top-[10%] left-[-5%] w-[45vw] h-[45vw] bg-gradient-to-tr from-brand-blue-deep to-brand-blue-light rounded-full blur-3xl animate-pulse duration-10000"></div>
-        <div className="absolute bottom-[-10%] right-[-5%] w-[50vw] h-[50vw] bg-gradient-to-br from-brand-yellow to-orange-400 rounded-full blur-3xl opacity-70"></div>
+      {/* Background Image of People & Glow Orbs */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* Background Image overlay */}
+        <img 
+          src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=1920" 
+          alt="" 
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.12] mix-blend-multiply"
+        />
+        {/* Glow Orbs */}
+        <div className="absolute inset-0 opacity-15">
+          <div className="absolute top-[10%] left-[-5%] w-[45vw] h-[45vw] bg-gradient-to-tr from-brand-blue-deep to-brand-blue-light rounded-full blur-3xl animate-pulse duration-10000"></div>
+          <div className="absolute bottom-[-10%] right-[-5%] w-[50vw] h-[50vw] bg-gradient-to-br from-brand-yellow to-orange-400 rounded-full blur-3xl opacity-70"></div>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -27,7 +36,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Main Hero Card (Large Bento Box on Left) */}
-          <div className="lg:col-span-8 bg-white/80 backdrop-blur-md border border-slate-200/60 rounded-[2.5rem] p-8 sm:p-12 flex flex-col justify-center relative overflow-hidden text-left shadow-xl shadow-slate-100/50 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500">
+          <div className="lg:col-span-7 bg-white/85 backdrop-blur-md border border-slate-200/60 rounded-[2.5rem] p-8 sm:p-12 flex flex-col justify-center relative overflow-hidden text-left shadow-xl shadow-slate-100/50 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500">
             <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-blue-50 to-indigo-50/30 rounded-full -mr-20 -mt-20 blur-3xl opacity-80"></div>
             
             {/* Tagline partnership */}
@@ -93,83 +102,90 @@ export default function Hero() {
                 <span>Como Cuidamos de Você</span>
               </button>
             </div>
-          </div>
 
-          {/* Right Bento Box (Simulated Mobile App Dashboard) */}
-          <div className="lg:col-span-4 bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100 rounded-[2.5rem] p-6 sm:p-8 flex flex-col justify-between border border-slate-800 relative overflow-hidden text-left shadow-2xl transition-all duration-500 hover:shadow-brand-blue-deep/10 hover:border-slate-700/60">
-            <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-brand-blue-deep/20 rounded-full blur-2xl animate-pulse"></div>
-            
-            <div>
-              <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-6">
-                <div className="flex items-center space-x-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-rose-500"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
-                </div>
-                <span className="text-[9px] bg-slate-800 border border-white/5 text-slate-350 font-mono px-2.5 py-0.5 rounded-full tracking-wider">
-                  APP DU BENEFÍCIOS
-                </span>
+            {/* Avatar Group of People (Real photos) */}
+            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex -space-x-3 overflow-hidden">
+                {[
+                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120',
+                  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120',
+                  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=120&h=120',
+                  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120',
+                  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120'
+                ].map((url, i) => (
+                  <img
+                    key={i}
+                    src={url}
+                    alt={`Beneficiário ${i + 1}`}
+                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover shrink-0"
+                  />
+                ))}
               </div>
-
-              {/* Simulated Virtual Card */}
-              <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/90 rounded-2xl p-5 shadow-xl border border-white/10 relative overflow-hidden mb-6">
-                <div className="absolute right-[-10%] top-[-20%] w-24 h-24 bg-brand-yellow/10 rounded-full blur-xl"></div>
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <p className="text-[9px] text-slate-400 uppercase tracking-widest font-mono">Carteira Virtual</p>
-                    <h4 className="font-semibold text-white tracking-wide text-sm font-display mt-0.5">Dona Selma Mota</h4>
+              <div className="text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1">
+                  <div className="flex text-amber-500">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <svg key={s} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
                   </div>
-                  <div className="px-2 py-0.5 bg-brand-yellow text-slate-950 rounded text-[9px] font-black uppercase tracking-wider shadow-sm">VIP PRÓ</div>
+                  <span className="text-xs font-bold text-slate-800">4.9/5</span>
                 </div>
-                <div className="flex justify-between items-end">
-                  <div>
-                    <p className="text-[8px] text-slate-400 font-mono">ID do Beneficiário</p>
-                    <p className="font-mono text-xs text-slate-200">928.349.12-8</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[8px] text-slate-400">Ativação</p>
-                    <p className="text-[10px] font-display text-brand-yellow font-black uppercase tracking-wider">Imediata</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* App interface buttons showcase */}
-              <div className="space-y-3.5">
-                <div className="bg-slate-850/60 backdrop-blur-sm p-3.5 rounded-xl flex items-center justify-between border border-white/5 hover:border-white/10 hover:bg-slate-850/80 transition-all duration-300">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-1.5 bg-brand-yellow/20 text-brand-yellow rounded-lg">
-                      <HeartPulse className="w-4 h-4" />
-                    </div>
-                    <span className="text-xs font-semibold text-slate-200">Consulta Médica</span>
-                  </div>
-                  <span className="text-[10px] text-emerald-400 font-mono font-bold bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">Confirmado</span>
-                </div>
-
-                <div className="bg-slate-850/60 backdrop-blur-sm p-3.5 rounded-xl flex items-center justify-between border border-white/5 hover:border-white/10 hover:bg-slate-850/80 transition-all duration-300">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-1.5 bg-brand-blue-light/20 text-brand-blue-light rounded-lg">
-                      <Car className="w-4 h-4" />
-                    </div>
-                    <span className="text-xs font-semibold text-slate-200">Guincho Sempre</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400 font-mono font-bold bg-white/5 px-2 py-0.5 rounded-md">Ativo</span>
-                </div>
-
-                {/* Savings display card inside mobile mockup */}
-                <div className="bg-blue-950/20 border border-brand-blue-light/10 rounded-xl p-4 text-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-deep/5 to-transparent"></div>
-                  <span className="text-[9px] text-brand-blue-light uppercase tracking-widest font-bold block mb-1">Economia Recorrente Estimada</span>
-                  <p className="font-display font-extrabold text-xl text-brand-yellow">R$ 1.840,00/ano</p>
-                  <span className="text-[8px] text-slate-400 block mt-1">Média estimada com clube de vantagens</span>
-                </div>
+                <p className="text-[11px] text-slate-500 mt-0.5">Recomendado por mais de 4 milhões de vidas atendidas</p>
               </div>
             </div>
-            
-            <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-              <span className="text-[9px] text-slate-400 font-bold tracking-widest uppercase font-mono">Plataforma Segura</span>
-              <div className="flex items-center space-x-1.5 bg-white/5 border border-white/5 px-2.5 py-0.5 rounded-lg text-xs text-brand-yellow font-extrabold">
-                <Sparkles className="w-3 h-3 text-brand-yellow fill-current" />
-                <span>5.0</span>
+          </div>
+
+          {/* Right Bento Box Container (Large Image Card + Coordinator card) */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {/* Bento Box de Imagem Grande de Pessoas */}
+            <div className="relative rounded-[2.5rem] overflow-hidden min-h-[350px] border border-slate-200/60 shadow-xl group hover:shadow-2xl transition-all duration-500 flex-grow flex flex-col justify-end p-6 sm:p-8 text-left">
+              {/* Imagem de Fundo de Pessoas */}
+              <img
+                src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=800"
+                alt="Família feliz e protegida"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none select-none"
+              />
+              {/* Overlay Gradiente Escuro para contraste */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none"></div>
+              
+              {/* Conteúdo sobre a Imagem */}
+              <div className="relative z-10">
+                <span className="inline-flex items-center bg-brand-yellow text-slate-950 text-[9px] font-black uppercase tracking-wider px-3 py-1 rounded-full mb-3 shadow-sm">
+                  Ativação Imediata
+                </span>
+                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white leading-tight mb-2 drop-shadow-sm">
+                  A ajuda de verdade que sua família precisa
+                </h3>
+                <p className="text-slate-200 text-[11px] leading-relaxed max-w-sm drop-shadow-sm">
+                  Cuidado de ponta a ponta com telemedicina ilimitada 24h, assistência veicular Sempre e descontos de até 90% em medicamentos e serviços.
+                </p>
+              </div>
+            </div>
+
+            {/* Coordinator Status Card with Real Image */}
+            <div className="bg-white border border-slate-200/60 rounded-3xl p-5 shadow-lg shadow-slate-100/40 hover:shadow-xl transition-all duration-300 flex items-center gap-4 relative overflow-hidden group border-l-4 border-l-brand-blue-deep">
+              <div className="absolute right-0 top-0 w-16 h-16 bg-brand-blue-deep/5 rounded-bl-full"></div>
+              {/* Image Area for Coordinator */}
+              <div className="relative shrink-0">
+                <img
+                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200"
+                  alt="Coordenadora de Vendas"
+                  className="w-14 h-14 rounded-2xl object-cover border border-slate-200 shadow-sm"
+                />
+                {/* Active/Online indicator dot */}
+                <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white"></span>
+                </span>
+              </div>
+              <div className="text-left">
+                <span className="text-[9px] uppercase font-mono tracking-wider text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded">
+                  Online Agora
+                </span>
+                <h4 className="font-display font-extrabold text-sm text-slate-900 mt-1">Central de Vendas</h4>
+                <p className="text-[11px] text-slate-500">Tire dúvidas em menos de 10 min</p>
               </div>
             </div>
           </div>

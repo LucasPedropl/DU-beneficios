@@ -80,7 +80,32 @@ export default function LeadForm() {
               </p>
             </div>
 
-            <div className="mt-8 space-y-4 border-t border-slate-100 pt-6">
+            {/* Coordinator Image Area (Destaque Grande) */}
+            <div className="my-6 bg-white border border-slate-200/60 rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all flex flex-col sm:flex-row items-stretch">
+              <div className="sm:w-1/3 relative min-h-[140px]">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400"
+                  alt="Consultora especialista da DU Benefícios"
+                  className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+                />
+              </div>
+              <div className="p-5 flex-grow flex flex-col justify-center text-left">
+                <span className="text-[8px] font-mono uppercase font-black tracking-wider text-brand-blue-deep bg-brand-blue-deep/5 px-2 py-0.5 rounded w-fit mb-1.5">
+                  Fale com um Especialista
+                </span>
+                <h4 className="text-sm font-bold text-slate-900 leading-snug">Mariana Silveira</h4>
+                <p className="text-[11px] text-slate-500 mt-0.5">Sua consultora de vantagens</p>
+                <div className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1.5 mt-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>Resposta imediata no WhatsApp</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-2 space-y-4 border-t border-slate-100 pt-6">
               <div className="flex items-center space-x-3 text-xs text-slate-600">
                 <CheckCircle className="w-4.5 h-4.5 text-brand-blue-deep shrink-0 font-bold" />
                 <span>Acolhimento feito por pessoas que te ouvem de verdade</span>

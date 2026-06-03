@@ -4,13 +4,24 @@
  */
 
 import React, { useState, useMemo } from 'react';
-import { Search, Compass, HeartPulse, Pill, ShoppingBag, ShieldCheck, Sparkles } from 'lucide-react';
+import { Search, Compass, HeartPulse, Pill, ShoppingBag, ShieldCheck } from 'lucide-react';
 
 interface PharmacyDiscount {
   name: string;
   genericDiscount: string;
   brandedDiscount: string;
   extraInfo: string;
+  initials: string;
+  gradient: string;
+}
+
+interface RetailDiscount {
+  name: string;
+  category: string;
+  discount: string;
+  info: string;
+  initials: string;
+  gradient: string;
 }
 
 const CATEGORIES = [
@@ -22,25 +33,25 @@ const CATEGORIES = [
 ];
 
 const PHARMACIES_DATA: PharmacyDiscount[] = [
-  { name: 'Droga Raia', genericDiscount: 'Até 45%', brandedDiscount: 'Até 15%', extraInfo: 'Válido em todo o país' },
-  { name: 'Drogasil', genericDiscount: 'Até 45%', brandedDiscount: 'Até 15%', extraInfo: 'Todas as unidades' },
-  { name: 'Pague Menos', genericDiscount: 'Até 35%', brandedDiscount: 'Até 20%', extraInfo: 'Desconto nacional' },
-  { name: 'Drogaria Pacheco', genericDiscount: 'Até 20%', brandedDiscount: 'Até 10%', extraInfo: 'Rio e São Paulo' },
-  { name: 'Drogaria São Paulo', genericDiscount: 'Até 20%', brandedDiscount: 'Até 10%', extraInfo: 'Líder regional' },
-  { name: 'PanVel', genericDiscount: 'Até 20%', brandedDiscount: 'Até 10%', extraInfo: 'Sul do país' },
-  { name: 'Araújo', genericDiscount: 'Até 40%', brandedDiscount: '15% em produtos MIÓ', extraInfo: 'Desconto premium' },
-  { name: 'Extrafarma', genericDiscount: 'Até 35%', brandedDiscount: 'Até 20%', extraInfo: 'Presença Norte/Nordeste' },
+  { name: 'Droga Raia', genericDiscount: 'Até 45%', brandedDiscount: 'Até 15%', extraInfo: 'Válido em todo o país', initials: 'DR', gradient: 'from-emerald-500 to-teal-650' },
+  { name: 'Drogasil', genericDiscount: 'Até 45%', brandedDiscount: 'Até 15%', extraInfo: 'Todas as unidades', initials: 'DS', gradient: 'from-rose-500 to-red-600' },
+  { name: 'Pague Menos', genericDiscount: 'Até 35%', brandedDiscount: 'Até 20%', extraInfo: 'Desconto nacional', initials: 'PM', gradient: 'from-blue-600 to-indigo-700' },
+  { name: 'Drogaria Pacheco', genericDiscount: 'Até 20%', brandedDiscount: 'Até 10%', extraInfo: 'Rio e São Paulo', initials: 'DP', gradient: 'from-sky-500 to-blue-600' },
+  { name: 'Drogaria São Paulo', genericDiscount: 'Até 20%', brandedDiscount: 'Até 10%', extraInfo: 'Líder regional', initials: 'SP', gradient: 'from-red-500 to-rose-600' },
+  { name: 'PanVel', genericDiscount: 'Até 20%', brandedDiscount: 'Até 10%', extraInfo: 'Sul do país', initials: 'PV', gradient: 'from-violet-550 to-indigo-650' },
+  { name: 'Araújo', genericDiscount: 'Até 40%', brandedDiscount: '15% em produtos MIÓ', extraInfo: 'Desconto premium', initials: 'AR', gradient: 'from-amber-500 to-orange-600' },
+  { name: 'Extrafarma', genericDiscount: 'Até 35%', brandedDiscount: 'Até 20%', extraInfo: 'Presença Norte/Nordeste', initials: 'EF', gradient: 'from-fuchsia-500 to-pink-600' },
 ];
 
-const RETAIL_DATA = [
-  { name: 'Riachuelo', category: 'varejo', discount: 'Até 20% OFF', info: 'Roupas e moda' },
-  { name: 'Renner', category: 'varejo', discount: 'Até 15% OFF', info: 'Moda feminina e masculina' },
-  { name: 'Decathlon', category: 'varejo', discount: 'Até 10% OFF', info: 'Esportes e lazer' },
-  { name: 'Domino\'s', category: 'varejo', discount: 'Até 35% OFF', info: 'Pizzas selecionadas' },
-  { name: 'Electrolux', category: 'varejo', discount: 'Até 25% OFF', info: 'Eletrodomésticos' },
-  { name: 'Conquer', category: 'varejo', discount: 'Até 30% OFF', info: 'Cursos de negócios/skills' },
-  { name: 'Acer', category: 'varejo', discount: 'Até 15% OFF', info: 'Notebooks e tecnologia' },
-  { name: 'Giolaser', category: 'varejo', discount: 'Até 40% OFF', info: 'Estética e bem-estar' },
+const RETAIL_DATA: RetailDiscount[] = [
+  { name: 'Riachuelo', category: 'varejo', discount: 'Até 20% OFF', info: 'Roupas e moda', initials: 'RCH', gradient: 'from-slate-700 to-slate-900' },
+  { name: 'Renner', category: 'varejo', discount: 'Até 15% OFF', info: 'Moda e vestuário', initials: 'REN', gradient: 'from-red-600 to-red-800' },
+  { name: 'Decathlon', category: 'varejo', discount: 'Até 10% OFF', info: 'Esportes e lazer', initials: 'DEC', gradient: 'from-cyan-500 to-blue-600' },
+  { name: 'Domino\'s', category: 'varejo', discount: 'Até 35% OFF', info: 'Pizzas selecionadas', initials: 'DOM', gradient: 'from-blue-600 via-rose-500 to-red-600' },
+  { name: 'Electrolux', category: 'varejo', discount: 'Até 25% OFF', info: 'Eletrodomésticos', initials: 'ELX', gradient: 'from-indigo-900 to-slate-900' },
+  { name: 'Conquer', category: 'varejo', discount: 'Até 30% OFF', info: 'Cursos de negócios', initials: 'COQ', gradient: 'from-yellow-500 to-amber-600' },
+  { name: 'Acer', category: 'varejo', discount: 'Até 15% OFF', info: 'Notebooks e tecnologia', initials: 'ACR', gradient: 'from-green-600 to-emerald-700' },
+  { name: 'Giolaser', category: 'varejo', discount: 'Até 40% OFF', info: 'Estética e depilação', initials: 'GIO', gradient: 'from-pink-400 to-rose-500' },
 ];
 
 export default function BenefitsCatalog() {
@@ -74,7 +85,7 @@ export default function BenefitsCatalog() {
             <h2 className="font-display text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Medicamentos e Compras com Desconto de Verdade
             </h2>
-            <p className="mt-4 text-slate-550 text-sm leading-relaxed">
+            <p className="mt-4 text-slate-555 text-sm leading-relaxed">
               Tenha acesso a mais de 290 farmácias conveniadas e 24 mil lojas físicas e virtuais credenciadas em todo o país. Economia real para as necessidades diárias de sua família.
             </p>
           </div>
@@ -130,14 +141,19 @@ export default function BenefitsCatalog() {
           {filteredPharmacies.map((item, index) => (
             <div key={`pharmacy-${index}`} className="bg-white hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-250/30 rounded-[2rem] p-6 border border-slate-200/60 flex flex-col justify-between transition-all duration-300 text-left group shadow-md shadow-slate-100/40">
               <div>
-                <span className="text-[9px] uppercase font-bold font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded">Medicamentos</span>
-                <h4 className="font-display font-black text-lg text-slate-900 group-hover:text-brand-blue-deep transition-colors mt-2.5">
+                <div className="flex justify-between items-start">
+                  <span className="text-[9px] uppercase font-bold font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded">Medicamentos</span>
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white font-display font-black text-xs shadow-md border border-white/10 shrink-0`}>
+                    {item.initials}
+                  </div>
+                </div>
+                <h4 className="font-display font-black text-lg text-slate-900 group-hover:text-brand-blue-deep transition-colors mt-3">
                   {item.name}
                 </h4>
                 <p className="text-xs text-slate-500 mt-1">{item.extraInfo}</p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center bg-slate-50/60 p-3.5 rounded-2xl border border-slate-150">
+              <div className="mt-6 pt-4.5 border-t border-slate-100 flex justify-between items-center bg-slate-50/60 p-3.5 rounded-2xl border border-slate-150">
                 <div>
                   <p className="text-[8px] uppercase tracking-widest font-bold text-slate-400">Genérico</p>
                   <p className="text-base font-extrabold text-brand-blue-deep font-display mt-0.5">{item.genericDiscount}</p>
@@ -154,8 +170,13 @@ export default function BenefitsCatalog() {
           {filteredRetail.map((item, index) => (
             <div key={`retail-${index}`} className="bg-white hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-250/30 rounded-[2rem] p-6 border border-slate-200/60 flex flex-col justify-between transition-all duration-300 text-left group shadow-md shadow-slate-100/40">
               <div>
-                <span className="text-[9px] uppercase font-bold font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded">Varejo e Lazer</span>
-                <h4 className="font-display font-black text-lg text-slate-900 group-hover:text-brand-blue-deep transition-colors mt-2.5">
+                <div className="flex justify-between items-start">
+                  <span className="text-[9px] uppercase font-bold font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded">Varejo e Lazer</span>
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white font-display font-black text-[10px] tracking-tight shadow-md border border-white/10 shrink-0`}>
+                    {item.initials}
+                  </div>
+                </div>
+                <h4 className="font-display font-black text-lg text-slate-900 group-hover:text-brand-blue-deep transition-colors mt-3">
                   {item.name}
                 </h4>
                 <p className="text-xs text-slate-500 mt-1">{item.info}</p>
