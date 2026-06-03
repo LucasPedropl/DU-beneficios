@@ -64,7 +64,7 @@ export default function LeadForm() {
   return (
     <section id="contato" className="py-24 bg-white border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50/70 backdrop-blur-sm border border-slate-200/60 rounded-[2.5rem] p-6 sm:p-12 max-w-5xl mx-auto shadow-xl shadow-slate-100/30">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white/80 backdrop-blur-md border border-slate-200/50 rounded-[2.5rem] p-6 sm:p-12 max-w-5xl mx-auto shadow-2xl shadow-slate-100/50">
           
           {/* Informative Side */}
           <div className="lg:col-span-5 text-left flex flex-col justify-between h-full py-2">
@@ -169,7 +169,7 @@ export default function LeadForm() {
                       placeholder="Ex: Dona Selma Mota"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 bg-slate-50 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue-deep focus:border-transparent focus:bg-white transition-all text-slate-900 font-medium"
+                      className="w-full pl-11 pr-4 py-3.5 bg-slate-50/50 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue-deep focus:border-transparent focus:bg-white transition-all text-slate-900 font-semibold shadow-inner"
                     />
                   </div>
                 </div>
@@ -185,7 +185,7 @@ export default function LeadForm() {
                         placeholder="Ex: selma@gmail.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full pl-11 pr-4 py-3 bg-slate-50 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue-deep focus:border-transparent focus:bg-white transition-all text-slate-900 font-medium"
+                        className="w-full pl-11 pr-4 py-3.5 bg-slate-50/50 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue-deep focus:border-transparent focus:bg-white transition-all text-slate-900 font-semibold shadow-inner"
                       />
                     </div>
                   </div>
@@ -221,10 +221,10 @@ export default function LeadForm() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-4 bg-brand-blue-deep hover:bg-blue-750 disabled:bg-slate-200 text-white font-display font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-brand-blue-deep/10 active:scale-[0.98] cursor-pointer flex items-center justify-center space-x-2"
+                    className="w-full py-4.5 bg-brand-blue-deep hover:bg-blue-750 disabled:bg-slate-200 text-white font-display font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-lg shadow-brand-blue-deep/20 hover:shadow-xl active:scale-[0.98] cursor-pointer flex items-center justify-center space-x-2.5"
                   >
                     <span>{submitting ? 'Aguarde, conectando...' : 'Falar com Atendimento Humano'}</span>
-                    {!submitting && <ArrowRight className="w-4 h-4 text-brand-yellow font-bold pointer-events-none" />}
+                    {!submitting && <ArrowRight className="w-4.5 h-4.5 text-brand-yellow font-black pointer-events-none" />}
                   </button>
                 </div>
               </form>

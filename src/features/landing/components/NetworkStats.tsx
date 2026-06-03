@@ -13,7 +13,7 @@ export default function NetworkStats() {
       <img
         src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=1600"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.08] mix-blend-overlay pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.35] mix-blend-overlay pointer-events-none select-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,11 +49,11 @@ export default function NetworkStats() {
             
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch h-full">
               {/* Left Column: Large Rectangular Photo */}
-              <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[220px] shadow-lg">
+              <div className="md:col-span-5 shadow-lg flex">
                 <img
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=500"
                   alt="Consulta Médica Online da TopMed"
-                  className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+                  className="w-full h-full min-h-[220px] object-cover rounded-2xl pointer-events-none select-none"
                 />
               </div>
 
@@ -103,11 +103,11 @@ export default function NetworkStats() {
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch h-full">
               {/* Left Column: Large Rectangular Photo */}
-              <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[220px] shadow-lg">
+              <div className="md:col-span-5 shadow-lg flex">
                 <img
-                  src="https://images.unsplash.com/photo-1543185377-b75671dfec7e?auto=format&fit=crop&q=80&w=500"
+                  src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?auto=format&fit=crop&q=80&w=500"
                   alt="Família feliz beneficiária"
-                  className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+                  className="w-full h-full min-h-[220px] object-cover rounded-2xl pointer-events-none select-none"
                 />
               </div>
 
@@ -145,7 +145,6 @@ export default function NetworkStats() {
             <div className="mt-6 pt-4 border-t border-white/5 text-[10px] text-slate-500 font-semibold leading-relaxed">
               Oferecemos economia, dignidade e proteção financeira de verdade para quem mais precisa.
             </div>
-          </div>       </div>
           </div>
 
         </div>

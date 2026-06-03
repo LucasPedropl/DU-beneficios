@@ -12,16 +12,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+    <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Upper footer row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-slate-900">
           
           {/* Brand block */}
           <div className="md:col-span-4 space-y-4 text-left">
             <div className="flex items-center space-x-2 cursor-pointer" onClick={scrollToTop}>
-              <div className="p-1.5 bg-white text-stone-950 rounded-xl flex items-center justify-center">
+              <div className="p-1.5 bg-white text-slate-950 rounded-xl flex items-center justify-center">
                 <HeartHandshake className="w-5 h-5 text-brand-blue-deep" />
               </div>
               <div>
@@ -31,10 +31,10 @@ export default function Footer() {
                     Benefícios
                   </span>
                 </div>
-                <p className="text-[9px] uppercase tracking-wider font-semibold text-stone-500">Grupo Zelo</p>
+                <p className="text-[9px] uppercase tracking-wider font-semibold text-slate-500">Grupo Zelo</p>
               </div>
             </div>
-            <p className="text-xs text-stone-400 leading-normal max-w-sm">
+            <p className="text-xs text-slate-400 leading-normal max-w-sm">
               Plataforma nacional pioneira de assistência integrada de vantagens, convênios de saúde e assistência automotiva Sempre 24h.
             </p>
           </div>
@@ -45,19 +45,19 @@ export default function Footer() {
             <div className="space-y-2 text-xs">
               <p className="flex items-start">
                 <PhoneCall className="w-3.5 h-3.5 mr-2 text-brand-yellow shrink-0 mt-0.5 pointer-events-none" />
-                <span>Central Conta Comigo: <strong className="text-stone-250">0800 24h</strong></span>
+                <span>Central Conta Comigo: <strong className="text-slate-200">0800 24h</strong></span>
               </p>
               <p className="flex items-start">
                 <Shield className="w-3.5 h-3.5 mr-2 text-brand-blue-light shrink-0 mt-0.5 pointer-events-none" />
-                <span>Automotivo Sempre: <strong className="text-stone-250">27 estados assistidos</strong></span>
+                <span>Automotivo Sempre: <strong className="text-slate-200">27 estados assistidos</strong></span>
               </p>
             </div>
           </div>
 
           {/* Extra partners block */}
           <div className="md:col-span-4 space-y-3 text-left">
-            <h4 className="text-xs uppercase font-mono font-bold text-stone-300 tracking-widest">Nossos Co-parceiros</h4>
-            <p className="text-xs leading-relaxed max-w-xs text-stone-400">
+            <h4 className="text-xs uppercase font-mono font-bold text-slate-350 tracking-widest">Nossos Co-parceiros</h4>
+            <p className="text-xs leading-relaxed max-w-xs text-slate-400">
               Operado em parceria estratégica com o <strong>Grupo Zelo</strong> (Líder em Death Care e assistência funeral) e <strong>TopMed Saúde Digital</strong>.
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         {/* Regulatory footer and copyrights row */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-8 text-[10px] text-stone-550 gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center pt-8 text-[10px] text-slate-500 gap-4">
           <div className="text-center sm:text-left space-y-1">
             <p>© 2026 Du Benefícios & Sempre Assistência Automotiva S.A.</p>
             <p className="max-w-2xl leading-relaxed">
@@ -73,8 +73,8 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center space-x-1 font-semibold text-stone-400 shrink-0">
-            <HelpCircle className="w-4 h-4 text-stone-500 pointer-events-none" />
+          <div className="flex items-center space-x-1 font-semibold text-slate-400 shrink-0">
+            <HelpCircle className="w-4 h-4 text-slate-500 pointer-events-none" />
             <span>Suporte Emergencial 24h</span>
           </div>
         </div>

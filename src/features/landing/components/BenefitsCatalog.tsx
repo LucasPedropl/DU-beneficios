@@ -76,26 +76,36 @@ export default function BenefitsCatalog() {
     <section id="beneficios" className="py-24 bg-slate-50 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header section with slide info */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
-          <div className="max-w-2xl text-left">
+        {/* Header section with large image highlight */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <div className="lg:col-span-7 text-left">
             <span className="text-xs uppercase font-mono tracking-widest text-brand-blue-deep font-black bg-brand-blue-deep/5 px-3 py-1.5 rounded-full block w-fit mb-3">
               Clube de Vantagens
             </span>
             <h2 className="font-display text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Medicamentos e Compras com Desconto de Verdade
             </h2>
-            <p className="mt-4 text-slate-555 text-sm leading-relaxed">
+            <p className="mt-4 text-slate-500 text-sm leading-relaxed max-w-2xl">
               Tenha acesso a mais de 290 farmácias conveniadas e 24 mil lojas físicas e virtuais credenciadas em todo o país. Economia real para as necessidades diárias de sua família.
             </p>
+            
+            {/* Highlight inline metrics saving */}
+            <div className="mt-6 flex items-center space-x-4 bg-white/70 backdrop-blur-sm border border-slate-200/60 p-4.5 rounded-2xl w-fit shadow-sm">
+              <span className="text-3xl font-display font-black text-brand-blue-deep shrink-0">+ R$ 35M</span>
+              <p className="text-[11px] text-slate-500 leading-normal max-w-xs">
+                Em economia gerada para nossos 4 milhões de clientes em todo o país com o clube de descontos.
+              </p>
+            </div>
           </div>
 
-          {/* Highlight pill R$35 Millions saving */}
-          <div className="bg-white border border-slate-200 rounded-[2rem] p-6 md:max-w-xs text-left shadow-lg shadow-slate-100/50 relative overflow-hidden shrink-0">
-            <div className="absolute right-[-10%] top-[-10%] w-16 h-16 bg-blue-50 rounded-full blur-xl"></div>
-            <p className="text-[9px] uppercase font-bold font-mono text-slate-400">Histórico de Cuidado</p>
-            <p className="font-display text-2.5xl font-black mt-1.5 text-brand-blue-deep">+ R$ 35 Milhões</p>
-            <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">Em economia líquida gerada para nossos 4 milhões de clientes no Brasil.</p>
+          {/* Large Image Highlight */}
+          <div className="lg:col-span-5 relative rounded-[2rem] overflow-hidden min-h-[250px] shadow-lg border border-slate-200/60 group">
+            <img 
+              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=800"
+              alt="Compras e Lazer" 
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none select-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
           </div>
         </div>
 

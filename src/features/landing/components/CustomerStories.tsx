@@ -62,7 +62,7 @@ export default function CustomerStories() {
           {STORIES.map((s, idx) => (
             <div 
               key={idx} 
-              className="bg-white border border-slate-200/60 rounded-[2.2rem] p-6 sm:p-8 flex flex-col justify-between hover:shadow-2xl hover:border-brand-blue-deep/20 transition-all duration-300 text-left relative shadow-lg shadow-slate-100/50 group"
+              className="bg-white/90 backdrop-blur-sm border border-slate-200/50 rounded-[2.5rem] p-6 sm:p-8 flex flex-col justify-between hover:shadow-2xl hover:border-brand-blue-deep/20 transition-all duration-500 text-left relative shadow-xl shadow-slate-100/40 group"
             >
               {/* Giant Stylized Quote Mark */}
               <span className="font-serif text-9xl text-slate-100 group-hover:text-slate-150 select-none absolute top-[-10px] right-6 transition-colors duration-300 pointer-events-none">
@@ -71,20 +71,20 @@ export default function CustomerStories() {
 
               <div className="relative z-10">
                 {/* Profile Photo & Info */}
-                <div className="flex items-center space-x-4.5 mb-6">
+                <div className="flex items-center space-x-5 mb-6">
                   <img 
                     src={s.image} 
                     alt={s.name} 
-                    className="w-15 h-15 rounded-full object-cover ring-2 ring-brand-yellow ring-offset-2 shadow-md group-hover:scale-105 transition-transform duration-300"
+                    className="w-20 h-20 rounded-full object-cover ring-4 ring-brand-yellow/80 ring-offset-4 shadow-lg group-hover:scale-105 transition-transform duration-500 shrink-0 pointer-events-none select-none"
                   />
                   <div>
-                    <h4 className="font-display font-extrabold text-base text-slate-900 leading-tight">
+                    <h4 className="font-display font-extrabold text-lg text-slate-900 leading-tight">
                       {s.name}
                     </h4>
-                    <p className="text-xs text-slate-400 font-medium mt-0.5">
+                    <p className="text-xs text-slate-500 font-bold mt-1">
                       {s.age} anos, {s.role}
                     </p>
-                    <p className="text-[10px] text-slate-400 font-mono mt-0.5">
+                    <p className="text-[10px] text-slate-400 font-mono mt-0.5 uppercase tracking-wider">
                       {s.location}
                     </p>
                   </div>

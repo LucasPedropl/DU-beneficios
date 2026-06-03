@@ -174,6 +174,12 @@ export default function SavingsSimulator() {
 
           {/* Right Live Results Panel */}
           <div className="lg:col-span-6 bg-gradient-to-br from-slate-900 to-slate-950 text-slate-100 p-6 sm:p-10 rounded-[2.5rem] border border-slate-800 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+            {/* Background image overlay to humanize the data */}
+            <img
+              src="https://images.unsplash.com/photo-1543185377-b75671dfec7e?auto=format&fit=crop&q=80&w=800"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-[0.06] mix-blend-overlay pointer-events-none select-none"
+            />
             <div className="absolute right-0 top-0 opacity-10 pointer-events-none">
               <Sparkles className="w-56 h-56 text-brand-yellow" />
             </div>

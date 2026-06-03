@@ -22,7 +22,7 @@ export default function Hero() {
         <img 
           src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=1920" 
           alt="" 
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.12] mix-blend-multiply"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.38] mix-blend-multiply"
         />
         {/* Glow Orbs */}
         <div className="absolute inset-0 opacity-15">

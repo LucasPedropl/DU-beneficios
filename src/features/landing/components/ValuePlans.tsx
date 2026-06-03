@@ -62,74 +62,80 @@ export default function ValuePlans() {
   };
 
   return (
-    <section id="planos" className="py-20 bg-stone-50 border-t border-stone-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="planos" className="py-24 bg-slate-50 border-t border-slate-200/60 relative overflow-hidden">
+      {/* Background Image of People */}
+      <img
+        src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=1600"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.28] mix-blend-multiply pointer-events-none select-none"
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Title Block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs uppercase font-mono tracking-widest text-[#2563eb] font-bold block mb-2">
             Valores e Planos
           </span>
-          <h2 className="font-display text-4xl font-extrabold text-stone-900 tracking-tight">
+          <h2 className="font-display text-4xl font-extrabold text-slate-900 tracking-tight">
             Valores Transparentes que Cabem no Bolso
           </h2>
-          <p className="mt-4 text-stone-500 text-sm leading-relaxed">
+          <p className="mt-4 text-slate-500 text-sm leading-relaxed">
             Nenhuma taxa surpresa ou carência abusiva. Escolha o plano ideal para você, sua família ou sua empresa e comece a economizar de imediato.
           </p>
         </div>
 
         {/* Pricing Layout Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
           {PLANS.map((plan, index) => {
             return (
               <div
                 key={index}
-                className={`flex flex-col justify-between rounded-3xl p-6 sm:p-8 text-left transition-all duration-300 relative ${
+                className={`flex flex-col justify-between rounded-[2.5rem] p-6 sm:p-8 text-left transition-all duration-500 relative ${
                   plan.popular
-                    ? 'bg-stone-900 text-white shadow-xl scale-[1.03] border-t-8 border-brand-yellow md:-translate-y-2 border-stone-850'
-                    : 'bg-white text-stone-850 shadow-sm border border-stone-200 hover:scale-[1.01]'
+                    ? 'bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white shadow-2xl scale-[1.04] border-t-8 border-brand-yellow md:-translate-y-2 border-slate-950'
+                    : 'bg-white/90 backdrop-blur-sm text-slate-800 shadow-xl shadow-slate-100/40 border border-slate-200/50 hover:scale-[1.01]'
                 }`}
               >
                 {/* Popular Highlight Badge */}
                 {plan.popular && (
-                  <div className="absolute top-4 right-6 bg-brand-yellow text-slate-900 font-sans text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full flex items-center space-x-1 shadow">
-                    <Sparkles className="w-3 h-3 pointer-events-none" />
+                  <div className="absolute top-4 right-6 bg-brand-yellow text-slate-950 font-sans text-[10px] font-black uppercase tracking-wide px-3 py-1 rounded-full flex items-center space-x-1 shadow-md shadow-brand-yellow/10">
+                    <Sparkles className="w-3.5 h-3.5 fill-current pointer-events-none" />
                     <span>Mais Recomendado</span>
                   </div>
                 )}
 
                 <div>
-                  <h3 className={`font-display font-extrabold text-lg ${plan.popular ? 'text-white' : 'text-stone-900'}`}>
+                  <h3 className={`font-display font-black text-xl ${plan.popular ? 'text-white' : 'text-slate-900'}`}>
                     {plan.name}
                   </h3>
-                  <p className={`text-xs mt-1 leading-normal ${plan.popular ? 'text-stone-400' : 'text-stone-500'}`}>
+                  <p className={`text-xs mt-1 leading-normal ${plan.popular ? 'text-slate-400' : 'text-slate-500'}`}>
                     {plan.description}
                   </p>
 
                   {/* Price display custom layout */}
                   <div className="my-6 flex items-baseline">
-                    <span className={`text-sm ${plan.popular ? 'text-brand-yellow' : 'text-brand-blue-deep'}`}>R$&nbsp;</span>
-                    <span className={`font-display text-4xl sm:text-5xl font-extrabold tracking-tight ${plan.popular ? 'text-white' : 'text-stone-900'}`}>
+                    <span className={`text-sm font-bold ${plan.popular ? 'text-brand-yellow' : 'text-brand-blue-deep'}`}>R$&nbsp;</span>
+                    <span className={`font-display text-4xl sm:text-5xl font-black tracking-tight ${plan.popular ? 'text-white' : 'text-slate-900'}`}>
                       {plan.price}
                     </span>
                     {plan.price !== 'Sob Consulta' && (
-                      <span className={`text-xs font-medium ml-1.5 ${plan.popular ? 'text-stone-500' : 'text-stone-400'}`}>
+                      <span className={`text-xs font-semibold ml-1.5 ${plan.popular ? 'text-slate-500' : 'text-slate-400'}`}>
                         / mês
                       </span>
                     )}
                   </div>
 
                   {/* Feature Checklist */}
-                  <p className={`text-[10px] uppercase font-mono tracking-wider font-bold mb-3 ${plan.popular ? 'text-stone-405' : 'text-stone-500'}`}>
+                  <p className={`text-[10px] uppercase font-mono tracking-wider font-bold mb-3.5 ${plan.popular ? 'text-slate-450' : 'text-slate-400'}`}>
                     O que está incluso:
                   </p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3.5">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start text-xs leading-relaxed">
-                        <Check className={`w-4 h-4 shrink-0 mr-2.5 mt-0.5 ${
+                        <Check className={`w-4.5 h-4.5 shrink-0 mr-2.5 mt-0.5 ${
                           plan.popular ? 'text-brand-yellow' : 'text-brand-blue-deep'
                         }`} />
-                        <span className={plan.popular ? 'text-stone-300' : 'text-stone-700'}>{feature}</span>
+                        <span className={plan.popular ? 'text-slate-300' : 'text-slate-650'}>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -139,10 +145,10 @@ export default function ValuePlans() {
                 <button
                   type="button"
                   onClick={scrollToContact}
-                  className={`w-full py-3.5 rounded-2xl font-display text-xs font-bold uppercase transition-all tracking-wider active:scale-95 text-center mt-8 cursor-pointer ${
+                  className={`w-full py-4 rounded-2xl font-display text-xs font-bold uppercase transition-all duration-300 tracking-wider active:scale-[0.97] text-center mt-8 cursor-pointer shadow-md ${
                     plan.popular
-                      ? 'bg-brand-yellow text-slate-900 hover:bg-brand-yellow/90'
-                      : 'bg-stone-100 text-stone-900 hover:bg-stone-200 border border-stone-200'
+                      ? 'bg-brand-yellow text-slate-950 hover:bg-amber-500 shadow-brand-yellow/10'
+                      : 'bg-slate-100 text-slate-800 hover:bg-slate-200 border border-slate-200/50 shadow-slate-100/10'
                   }`}
                 >
                   {plan.cta}

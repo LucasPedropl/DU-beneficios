@@ -123,15 +123,15 @@ export default function TimelineHistory() {
                     isSelected ? 'scale-105' : 'hover:scale-102'
                   }`}
                 >
-                  <span className={`text-sm font-bold font-display tracking-tight transition-colors ${
-                    isSelected ? 'text-brand-blue-deep bg-brand-yellow px-2.5 py-1 rounded-full' : 'text-stone-400'
+                  <span className={`text-xs font-bold font-display tracking-wider transition-all duration-300 px-3.5 py-1.5 rounded-xl ${
+                    isSelected ? 'text-slate-950 bg-brand-yellow shadow-md shadow-brand-yellow/10 scale-110' : 'text-slate-400 hover:text-slate-600'
                   }`}>
                     {m.year}
                   </span>
-                  <div className={`w-3.5 h-3.5 rounded-full mt-3.5 transition-all ${
+                  <div className={`w-3.5 h-3.5 rounded-full mt-3.5 transition-all duration-300 ${
                     isSelected 
-                      ? 'bg-brand-blue-deep border-4 border-brand-yellow ring-4 ring-brand-blue-deep/10' 
-                      : 'bg-stone-300 hover:bg-stone-400'
+                      ? 'bg-brand-blue-deep border-4 border-brand-yellow ring-4 ring-brand-blue-deep/15' 
+                      : 'bg-slate-300 hover:bg-slate-405'
                   }`} />
                 </button>
               );
@@ -140,8 +140,8 @@ export default function TimelineHistory() {
         </div>
 
         {/* Display Panel of selected year */}
-        <div className="bg-stone-50 border border-stone-200 rounded-[2rem] p-6 sm:p-8 max-w-3xl mx-auto mt-8 flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8 text-left transition-all duration-300 shadow-sm">
-          <div className="p-4 bg-stone-900 rounded-2xl flex items-center justify-center shrink-0 shadow-md">
+        <div className="bg-white/80 backdrop-blur-md border border-slate-200/50 rounded-[2.5rem] p-6 sm:p-8 max-w-3xl mx-auto mt-8 flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8 text-left transition-all duration-500 shadow-xl shadow-slate-100/40">
+          <div className="p-4.5 bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-md">
             {MILESTONES[selectedIdx].Icon()}
           </div>
           <div>
@@ -149,13 +149,13 @@ export default function TimelineHistory() {
               <span className="text-xs font-mono font-bold text-brand-blue-deep bg-blue-50 px-2 py-0.5 rounded-md">
                 Ano {MILESTONES[selectedIdx].year}
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-stone-300" />
-              <p className="text-xs text-stone-500 font-medium font-mono uppercase tracking-wider">Histórico de Conquistas</p>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-350" />
+              <p className="text-xs text-slate-400 font-medium font-mono uppercase tracking-wider">Histórico de Conquistas</p>
             </div>
-            <h3 className="font-display font-extrabold text-xl sm:text-2xl text-stone-900 mt-2">
+            <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 mt-2.5">
               {MILESTONES[selectedIdx].title}
             </h3>
-            <p className="mt-2 text-stone-600 text-sm leading-relaxed">
+            <p className="mt-2 text-slate-500 text-sm leading-relaxed">
               {MILESTONES[selectedIdx].description}
             </p>
           </div>

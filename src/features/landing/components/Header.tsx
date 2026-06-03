@@ -28,25 +28,25 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md border-b border-stone-200 py-3 text-stone-900 shadow-sm' : 'bg-stone-50/50 backdrop-blur-sm py-4 text-stone-900'
+      isScrolled ? 'bg-white/85 backdrop-blur-lg border-b border-slate-200/50 py-3 text-slate-900 shadow-sm shadow-slate-100/50' : 'bg-slate-50/40 backdrop-blur-md py-4 text-slate-900'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo & Brand */}
           <div className="flex items-center space-x-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="p-2 rounded-xl flex items-center justify-center bg-brand-blue-deep text-white transition-colors">
+            <div className="p-2 rounded-xl flex items-center justify-center bg-brand-blue-deep text-white transition-all shadow-md shadow-brand-blue-deep/10 hover:scale-105">
               <HeartHandshake className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center space-x-1">
-                <span className="font-display text-xl font-bold text-stone-900">
+                <span className="font-display text-xl font-extrabold text-slate-900 tracking-tight">
                   du
                 </span>
                 <span className="font-sans text-xs uppercase tracking-wider px-1.5 py-0.5 rounded font-bold bg-brand-blue-deep/10 text-brand-blue-deep">
                   Benefícios
                 </span>
               </div>
-              <p className="text-[10px] uppercase tracking-widest font-mono font-medium leading-none text-stone-500">
+              <p className="text-[10px] uppercase tracking-widest font-mono font-black leading-none text-slate-400 mt-0.5">
                 + Sempre Assistência
               </p>
             </div>
@@ -55,13 +55,13 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {['Benefícios', 'Descontos', 'Simulador', 'Histórico', 'Planos'].map((item) => {
-              const ids = ['beneficios', 'descontos', 'simulador', 'timeline', 'planos'];
+              const ids = ['beneficios', 'beneficios', 'simulador', 'timeline', 'planos'];
               const targetId = ids[['Benefícios', 'Descontos', 'Simulador', 'Histórico', 'Planos'].indexOf(item)];
               return (
                 <button
                    key={item}
                    onClick={() => scrollToSection(targetId)}
-                   className="font-medium transition-colors text-sm hover:opacity-80 active:scale-95 text-stone-605 hover:text-brand-blue-deep hover:font-semibold"
+                   className="font-semibold transition-all text-xs uppercase tracking-wider hover:text-brand-blue-deep hover:scale-[1.02] text-slate-500 cursor-pointer"
                 >
                   {item}
                 </button>
@@ -73,17 +73,17 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="tel:08000000000"
-              className="flex items-center space-x-1.5 font-mono text-xs font-semibold text-stone-600 hover:text-brand-blue-deep"
+              className="flex items-center space-x-1.5 font-mono text-xs font-bold text-slate-500 hover:text-brand-blue-deep transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>0800 24h</span>
             </a>
             <button
               onClick={() => scrollToSection('contato')}
-              className={`px-5 py-2.5 rounded-xl font-display text-xs font-bold uppercase transition-all duration-200 active:scale-95 shadow-sm ${
+              className={`px-5 py-2.5 rounded-xl font-display text-xs font-bold uppercase transition-all duration-300 active:scale-95 shadow-md ${
                 isScrolled
-                  ? 'bg-brand-blue-deep text-white hover:bg-brand-blue-deep/90 shadow'
-                  : 'bg-brand-yellow text-stone-900 hover:bg-brand-yellow/90 font-extrabold'
+                  ? 'bg-brand-blue-deep text-white hover:bg-blue-750 shadow-brand-blue-deep/10'
+                  : 'bg-brand-yellow text-slate-950 hover:bg-amber-500 hover:scale-[1.02] shadow-brand-yellow/10 font-extrabold'
               }`}
             >
               Garanta Já seu Plano

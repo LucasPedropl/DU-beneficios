@@ -165,31 +165,38 @@ export default function HealthJourney() {
           </p>
 
           {/* Central Conta Comigo banner inside the active state */}
-          <div className="mt-12 border-t border-slate-100 pt-10 flex flex-col md:flex-row items-stretch gap-8 pl-0 sm:pl-22">
-            <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=250"
-              alt="Equipe Central Conta Comigo" 
-              className="w-full md:w-64 h-40 object-cover rounded-[1.8rem] border border-slate-150 shadow-md shrink-0"
-            />
-            <div className="text-left flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] sm:text-xs font-mono font-black text-brand-blue-deep uppercase tracking-widest block mb-1.5">
-                  Central de Acolhimento
-                </span>
-                <h4 className="font-display font-extrabold text-base sm:text-lg text-slate-900 leading-snug">
-                  Aqui você fala com pessoas de verdade, prontas para ajudar.
-                </h4>
-                <p className="mt-2 text-slate-500 text-xs sm:text-sm leading-relaxed">
-                  Nossos coordenadores de saúde ligam ou mandam WhatsApp para agendar suas consultas e exames, encontrar o menor preço de medicamentos e te acompanhar de perto. É acolhimento e dedicação sem barreiras de robôs.
-                </p>
+          <div className="mt-12 border-t border-slate-100 pt-10 pl-0 sm:pl-22">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Left Column: Large Image */}
+              <div className="md:col-span-5 relative rounded-[2rem] overflow-hidden h-56 shadow-md border border-slate-200">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+                  alt="Equipe Central Conta Comigo" 
+                  className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+                />
               </div>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                <span className="text-[9px] sm:text-xs font-mono font-extrabold text-brand-blue-deep bg-brand-blue-deep/5 border border-brand-blue-deep/10 px-3 py-1 rounded-full uppercase tracking-wider">
-                  #contacomigo
-                </span>
-                <span className="text-[9px] sm:text-xs font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full font-bold">
-                  Média de 06:30 min por acolhimento
-                </span>
+
+              {/* Right Column: Content */}
+              <div className="md:col-span-7 text-left flex flex-col justify-between h-full">
+                <div>
+                  <span className="text-[10px] sm:text-xs font-mono font-black text-brand-blue-deep uppercase tracking-widest block mb-1.5">
+                    Central de Acolhimento
+                  </span>
+                  <h4 className="font-display font-extrabold text-base sm:text-lg text-slate-900 leading-snug">
+                    Aqui você fala com pessoas de verdade, prontas para ajudar.
+                  </h4>
+                  <p className="mt-2 text-slate-500 text-xs sm:text-sm leading-relaxed">
+                    Nossos coordenadores de saúde ligam ou mandam WhatsApp para agendar suas consultas e exames, encontrar o menor preço de medicamentos e te acompanhar de perto. É acolhimento e dedicação sem barreiras de robôs.
+                  </p>
+                </div>
+                <div className="mt-4 flex flex-wrap items-center gap-2">
+                  <span className="text-[9px] sm:text-xs font-mono font-extrabold text-brand-blue-deep bg-brand-blue-deep/5 border border-brand-blue-deep/10 px-3 py-1 rounded-full uppercase tracking-wider">
+                    #contacomigo
+                  </span>
+                  <span className="text-[9px] sm:text-xs font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full font-bold">
+                    Média de 06:30 min por acolhimento
+                  </span>
+                </div>
               </div>
             </div>
           </div>
